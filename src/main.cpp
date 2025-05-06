@@ -50,3 +50,27 @@ int main(void){
   
   }}
 
+ISR(PCINT_vect){
+  if(!(PIND & (1<<PD2))){
+    motorEstado = 1;
+
+  }else if (!(PIND &(1<<PD3))){
+motorEstado = 2;
+
+  }else if (!(PIND &(1<<PD4))){
+    motorEstado = 3;
+  }else if (!(PIND &(1<<PD5))){
+    motorEstado = 4;
+
+  }else if (!(PIND &(1<<PD6))){
+
+    motorEstado = 5;
+  }else if (!(PIND &(1<<PD7))){
+
+    motorEstado = 6;
+  }else{
+    motorEstado = 0;
+  }
+
+  _delay_ms(50);
+}
